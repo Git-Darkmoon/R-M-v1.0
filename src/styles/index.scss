@@ -1,0 +1,313 @@
+:root {
+  --clr-primaryGreen: hsl(113, 51%, 52%);
+  --clr-primaryYellow: hsl(56, 93%, 72%);
+  --clr-primaryBlue: hsl(197, 100%, 45%);
+
+  --clr-spaceBlack: hsl(0, 0%, 14%);
+  --clr-spaceGray: hsl(240deg 2.38% 83.53%);
+
+  --clr-cosmicWhite: hsl(0, 0%, 95%);
+  --clr-cosmicGlass: hsla(240deg, 2.38%, 83.53%, 0.25);
+  --clr-cosmicGray: hsl(0, 0%, 30%);
+
+  --ff-base: "Quicksand", sans-serif;
+
+  --fs-300: clamp(0.88rem, calc(0.8rem + 0.38vw), 1.25rem);
+  --fs-400: clamp(1.05rem, calc(0.91rem + 0.72vw), 1.77rem);
+  --fs-500: clamp(1.26rem, calc(1.01rem + 1.24vw), 2.5rem);
+  --fs-600: clamp(1.51rem, calc(1.11rem + 2.02vw), 3.53rem);
+  --fs-700: clamp(1.81rem, calc(1.18rem + 3.18vw), 5rem);
+  --fs-800: clamp(2.18rem, calc(1.2rem + 4.89vw), 7.07rem);
+
+  --fw-regular: 400;
+  --fw-bold: 700;
+
+  --space-05: 0.5rem;
+  --space-1: 1rem;
+  --space-2: 2rem;
+
+  --radius: 0.3rem;
+
+  --transition: all 0.35s ease-out;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@mixin mpReset() {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin flexCenter($direction: row) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin fontRegular($size: 300) {
+  font-size: $size;
+  font-family: var(--ff-base);
+  font-weight: var(--fw-regular);
+}
+@mixin fontBold($size: 300) {
+  font-size: $size;
+  font-family: var(--ff-base);
+  font-weight: var(--fw-bold);
+}
+
+body {
+  line-height: 1.6;
+  @include mpReset();
+
+  background-color: var(--clr-spaceBlack);
+
+  overflow-x: hidden;
+}
+
+body > * > * {
+  ::selection {
+    background-color: var(--clr-spaceBlack);
+    color: var(--clr-primaryGreen);
+  }
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+}
+
+header {
+  width: 100vw;
+  height: 7rem;
+  padding-top: 1rem;
+
+  @include flexCenter();
+
+  img {
+    height: 100%;
+    filter: grayscale(100%) contrast(105%);
+  }
+}
+
+.principal {
+  width: 100vw;
+  height: 100vh;
+
+  background: url("../assets/marbleBg.jpg") center/cover no-repeat /* fixed */;
+}
+
+.hero {
+  width: 100vw;
+  height: calc(100vh - 7rem);
+
+  @include flexCenter(column);
+
+  margin: auto;
+
+  .hero-left {
+    .hero-title {
+      @include fontBold(var(--fs-700));
+      color: var(--clr-cosmicGray);
+    }
+    .hero-body {
+      @include fontBold(var(--fs-500));
+      color: var(--clr-spaceBlack);
+      padding-left: var(--space-05);
+      border-left: 9px solid var(--clr-spaceBlack);
+    }
+  }
+  .hero-right {
+    img {
+      width: 60vw;
+      max-height: 50vh;
+    }
+  }
+}
+
+@media (width >= 49.5rem) {
+  .hero {
+    /* 768px */
+    @include flexCenter(row);
+  }
+
+  .hero-right {
+    width: 40rem;
+    img {
+      max-width: 70%;
+      height: 100%;
+      aspect-ratio: 10/16;
+      margin: auto;
+    }
+  }
+}
+
+.characters-container {
+  width: 100vw;
+  // height: 100%;
+  @include flexCenter(column);
+  margin: auto;
+}
+
+.characters-title {
+  @include fontBold(var(--fs-700));
+  color: var(--clr-spaceGray);
+  text-align: center;
+}
+
+.character-card > * {
+  color: var(--clr-cosmicWhite);
+  font-family: var(--ff-base);
+}
+
+.character-card {
+  background: var(--clr-cosmicGlass);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.8px);
+  -webkit-backdrop-filter: blur(5.8px);
+
+  width: 75vmin;
+
+  margin: auto;
+  margin-bottom: 2rem;
+
+  padding-inline: var(--space-1);
+  padding-block-start: var(--space-2);
+  padding-block-end: var(--space-1);
+
+  border-radius: calc(var(--radius) * 2);
+
+  .character-avatarContainer {
+    width: 100%;
+
+    .character-avatarPic {
+      width: 100%;
+      border-radius: var(--radius);
+    }
+  }
+
+  .character-info {
+    .character-name {
+      font-size: var(--fs-500);
+      margin-bottom: -1rem;
+    }
+
+    .character-state {
+      display: flex;
+      align-items: center;
+      gap: var(--space-05);
+
+      .character-stateIndicator {
+        width: var(--space-05);
+        height: var(--space-05);
+        background-color: var(--clr-spaceGray);
+        border-radius: 100%;
+        box-shadow: 0px 0px 7px var(--clr-spaceGray);
+        transition: var(--transition);
+      }
+
+      .alive {
+        background-color: var(--clr-primaryGreen);
+        box-shadow: 0px 0px 7px var(--clr-primaryGreen);
+      }
+      .dead {
+        background-color: hsl(0, 100%, 63%);
+        box-shadow: 0px 0px 7px #f44;
+      }
+
+      .character-stateInfo {
+        font-size: var(--fs-300);
+        color: var(--clr-cosmicGlass);
+      }
+    }
+
+    .btnContainer {
+      display: flex;
+      justify-content: flex-end;
+
+      .characterDetailsBtn {
+        border: none;
+        border-radius: var(--radius);
+
+        padding-block: 0.75rem;
+        padding-inline: var(--space-2);
+        background-color: var(--clr-spaceBlack);
+
+        @include fontBold(var(--fs-400));
+
+        color: var(--clr-cosmicGray);
+        transition: var(--transition);
+        cursor: pointer;
+
+        &:hover {
+          scale: 1.05;
+          color: var(--clr-primaryYellow);
+          box-shadow: 0px 0px 7px var(--clr-primaryGreen);
+        }
+
+        &:active {
+          scale: 1;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+
+@media (width >= 33rem) {
+  .character-card {
+    .character-avatarContainer {
+      width: 50vmin;
+      margin: auto;
+      img {
+        width: 100vw;
+      }
+    }
+  }
+}
+@media (width >= 48rem) {
+  .characters-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    margin: 0;
+    gap: var(--space-1);
+  }
+
+  .character-card {
+    width: 32rem;
+    height: 30vmin;
+    @include flexCenter();
+    justify-content: space-center;
+    gap: var(--space-2);
+
+    .character-avatarContainer {
+      width: 25vmin;
+      margin: 0;
+    }
+  }
+}
+
+// .q {
+//   width: 20rem;
+//   height: 20rem;
+//   background-color: crimson;
+// }
