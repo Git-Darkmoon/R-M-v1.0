@@ -5,7 +5,7 @@ import title from "./assets/title.png"
 import Loading from "./Loading"
 
 function App() {
-  const API_URL = "https://rickndmortyapi.com/api/character"
+  const API_URL = "https://rickandmortyapi.com/api/character"
 
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(true)
