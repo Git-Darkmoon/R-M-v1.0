@@ -118,23 +118,6 @@ img {
   }
 }
 
-// Styling Loading Component:
-
-.loading {
-  width: 100vw;
-  height: 100vh;
-  @include flexCenter(column);
-  padding-inline: 3rem;
-  img {
-    width: 25vmax;
-  }
-  .loadingTxt {
-    text-align: center;
-    @include fontBold(var(--fs-600));
-    color: var(--clr-cosmicGray);
-  }
-}
-
 header {
   width: 100vw;
   height: 7rem;
@@ -152,7 +135,7 @@ header {
   width: 100vw;
   height: 100%;
 
-  background: url("../assets/marbleBg.jpg") center/cover no-repeat /* fixed */;
+  background: url("../assets/marbleBg.webp") center/cover no-repeat /* fixed */;
 }
 
 .hero {

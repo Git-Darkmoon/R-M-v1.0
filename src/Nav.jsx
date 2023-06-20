@@ -1,4 +1,4 @@
-import title from "./assets/title.png"
+import title from "./assets/title.webp"
 
 function Nav() {
   return (
