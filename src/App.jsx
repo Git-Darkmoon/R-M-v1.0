@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react"
 import Characters from "./Characters"
 import Hero from "./Hero"
-import title from "./assets/title.png"
-import Loading from "./Loading"
+import Nav from "./Nav"
 
 function App() {
   const API_URL = "https://rickandmortyapi.com/api/character"
 
   const [data, setData] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
 
   const fetchData = async (URL) => {
     try {
@@ -16,7 +14,6 @@ function App() {
       const result = await response.json()
       console.log(result.results)
       setData(result.results)
-      setIsLoading(false)
     } catch (error) {
       setData([])
       console.log(error)
@@ -27,16 +24,10 @@ function App() {
     fetchData(API_URL)
   }, [])
 
-  if (isLoading) {
-    return <Loading />
-  }
-
   return (
     <>
       <section className="principal">
-        <header>
-          <img src={title} alt="" />
-        </header>
+        <Nav />
         <Hero />
       </section>
       <Characters data={data} />
