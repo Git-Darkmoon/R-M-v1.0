@@ -11,7 +11,10 @@ function Hero() {
         </h3>
       </div>
       <div className="hero-right">
-        <img src={illustration} alt="" />
+        <img
+          src={illustration}
+          alt="Rick and Morty coming from a green portal."
+        />
       </div>
     </section>
   )
