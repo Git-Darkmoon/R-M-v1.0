@@ -3,7 +3,12 @@ function Character({ image, name, status, species }) {
   return (
     <article className="character-card">
       <section className="character-avatarContainer">
-        <img className="character-avatarPic" src={image} alt="" />
+        <img
+          className="character-avatarPic"
+          src={image}
+          alt={name + ": rick and morty character"}
+          loading="lazy"
+        />
       </section>
       <section className="character-info">
         <h2 className="character-name">{name}</h2>
@@ -22,7 +27,6 @@ function Character({ image, name, status, species }) {
         </div>
       </section>
     </article>
-    // <div className="q"></div>
   )
 }
 

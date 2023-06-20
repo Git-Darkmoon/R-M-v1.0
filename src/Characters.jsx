@@ -1,22 +1,7 @@
-import { useEffect, useState } from "react"
+/* eslint-disable react/prop-types */
 import Character from "./Character"
 
-function Characters() {
-  const API_URL = "https://rickandmortyapi.com/api/character"
-
-  const [data, setData] = useState([])
-
-  const fetchData = async (URL) => {
-    const response = await fetch(URL)
-    const result = await response.json()
-    console.log(result.results)
-    setData(result.results)
-  }
-
-  useEffect(() => {
-    fetchData(API_URL)
-  }, [])
-
+function Characters({ data }) {
   return (
     <>
       <h2 className="characters-title">Characters</h2>
