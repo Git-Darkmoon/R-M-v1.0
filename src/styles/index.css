@@ -33,6 +33,31 @@ html {
   box-sizing: border-box;
 }
 
+/* Custom scrollbar like Mac OS
+Not supports in Firefox and IE */
+/* total width */
+body::-webkit-scrollbar {
+  background-color: var(--clr-spaceGray);
+  width: 16px;
+}
+
+/* background of the scrollbar except button or resizer */
+body::-webkit-scrollbar-track {
+  background-color: var(--clr-spaceGray);
+}
+
+/* scrollbar itself */
+body::-webkit-scrollbar-thumb {
+  background-color: var(--clr-cosmicGray);
+  border-radius: 16px;
+  border: 4px solid var(--clr-spaceGray);
+}
+
+/* set button(top and bottom of the scrollbar) */
+body::-webkit-scrollbar-button {
+  display: none;
+}
+
 body {
   line-height: 1.6;
   margin: 0;
@@ -86,6 +111,26 @@ h6 {
   text-wrap: balance;
 }
 
+.loading {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-inline: 3rem;
+}
+.loading img {
+  width: 25vmax;
+}
+.loading .loadingTxt {
+  text-align: center;
+  font-size: var(--fs-600);
+  font-family: var(--ff-base);
+  font-weight: var(--fw-bold);
+  color: var(--clr-cosmicGray);
+}
+
 header {
   width: 100vw;
   height: 7rem;
@@ -102,56 +147,47 @@ header img {
 
 .principal {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background: url("../assets/marbleBg.jpg") center/cover no-repeat;
 }
 
 .hero {
   width: 100vw;
-  height: calc(100vh - 7rem);
+  height: -moz-fit-content;
+  height: fit-content;
+  min-height: 20rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-block: 5rem;
   margin: auto;
+}
+.hero .hero-left {
+  text-wrap: balance;
+  padding-left: var(--space-1);
 }
 .hero .hero-left .hero-title {
   font-size: var(--fs-700);
   font-family: var(--ff-base);
   font-weight: var(--fw-bold);
   color: var(--clr-cosmicGray);
+  margin-bottom: 0;
 }
 .hero .hero-left .hero-body {
   font-size: var(--fs-500);
   font-family: var(--ff-base);
   font-weight: var(--fw-bold);
   color: var(--clr-spaceBlack);
-  padding-left: var(--space-05);
+  padding-left: var(--space-1);
   border-left: 9px solid var(--clr-spaceBlack);
 }
 .hero .hero-right img {
-  width: 60vw;
-  max-height: 50vh;
+  max-height: 20rem;
+  width: 100%;
+  filter: drop-shadow(0px 0px 12px var(--clr-cosmicGray));
 }
 
-@media (width >= 49.5rem) {
-  .hero {
-    /* 768px */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-  }
-  .hero-right {
-    width: 40rem;
-  }
-  .hero-right img {
-    max-width: 70%;
-    height: 100%;
-    aspect-ratio: 10/16;
-    margin: auto;
-  }
-}
 .characters-container {
   width: 100vw;
   display: flex;
@@ -174,115 +210,23 @@ header img {
   font-family: var(--ff-base);
 }
 
-.character-card {
-  background: var(--clr-cosmicGlass);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5.8px);
-  -webkit-backdrop-filter: blur(5.8px);
-  width: 75vmin;
-  margin: auto;
-  margin-bottom: 2rem;
-  padding-inline: var(--space-1);
-  -webkit-padding-before: var(--space-2);
-          padding-block-start: var(--space-2);
-  -webkit-padding-after: var(--space-1);
-          padding-block-end: var(--space-1);
-  border-radius: calc(var(--radius) * 2);
-}
-.character-card .character-avatarContainer {
-  width: 100%;
-}
-.character-card .character-avatarContainer .character-avatarPic {
-  width: 100%;
-  border-radius: var(--radius);
-}
-.character-card .character-info .character-name {
-  font-size: var(--fs-500);
-  margin-bottom: -1rem;
-}
-.character-card .character-info .character-state {
-  display: flex;
-  align-items: center;
-  gap: var(--space-05);
-}
-.character-card .character-info .character-state .character-stateIndicator {
-  width: var(--space-05);
-  height: var(--space-05);
-  background-color: var(--clr-spaceGray);
-  border-radius: 100%;
-  box-shadow: 0px 0px 7px var(--clr-spaceGray);
-  transition: var(--transition);
-}
-.character-card .character-info .character-state .alive {
-  background-color: var(--clr-primaryGreen);
-  box-shadow: 0px 0px 7px var(--clr-primaryGreen);
-}
-.character-card .character-info .character-state .dead {
-  background-color: hsl(0, 100%, 63%);
-  box-shadow: 0px 0px 7px #f44;
-}
-.character-card .character-info .character-state .character-stateInfo {
-  font-size: var(--fs-300);
-  color: var(--clr-cosmicGlass);
-}
-.character-card .character-info .btnContainer {
-  display: flex;
-  justify-content: flex-end;
-}
-.character-card .character-info .btnContainer .characterDetailsBtn {
-  border: none;
-  border-radius: var(--radius);
-  padding-block: 0.75rem;
-  padding-inline: var(--space-2);
-  background-color: var(--clr-spaceBlack);
-  font-size: var(--fs-400);
-  font-family: var(--ff-base);
-  font-weight: var(--fw-bold);
-  color: var(--clr-cosmicGray);
-  transition: var(--transition);
-  cursor: pointer;
-}
-.character-card .character-info .btnContainer .characterDetailsBtn:hover {
-  scale: 1.05;
-  color: var(--clr-primaryYellow);
-  box-shadow: 0px 0px 7px var(--clr-primaryGreen);
-}
-.character-card .character-info .btnContainer .characterDetailsBtn:active {
-  scale: 1;
-  box-shadow: none;
-}
-
-@media (width >= 33rem) {
-  .character-card .character-avatarContainer {
-    width: 50vmin;
-    margin: auto;
-  }
-  .character-card .character-avatarContainer img {
-    width: 100vw;
-  }
-}
+/* Styles to be applied for screens bigger
+than 768px (tablet) */
 @media (width >= 48rem) {
-  .characters-container {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 0;
-    gap: var(--space-1);
-  }
-  .character-card {
-    width: 32rem;
-    height: 30vmin;
+  .hero {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    justify-content: space-center;
-    gap: var(--space-2);
+    gap: 3%;
   }
-  .character-card .character-avatarContainer {
-    width: 25vmin;
-    margin: 0;
+  .hero-right img {
+    max-height: 30rem !important;
+    width: 30vmax;
+  }
+  .characters-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-2);
   }
 }/*# sourceMappingURL=index.css.map */
