@@ -1,25 +1,25 @@
 :root {
   --clr-primaryGreen: hsl(113, 51%, 52%);
-  --clr-primaryYellow: hsl(56, 93%, 72%);
-  --clr-primaryBlue: hsl(197, 100%, 45%);
+  --clr-primaryOrange: hsl(36, 100%, 47%);
+  --clr-darkenOrange: hsl(36, 100%, 37%);
   --clr-spaceBlack: hsl(0, 0%, 14%);
   --clr-spaceGray: hsl(240deg 2.38% 83.53%);
   --clr-cosmicWhite: hsl(0, 0%, 95%);
   --clr-cosmicGlass: hsla(240deg, 2.38%, 83.53%, 0.25);
   --clr-cosmicGray: hsl(0, 0%, 30%);
   --ff-base: "Quicksand", sans-serif;
-  --fs-300: clamp(0.88rem, calc(0.8rem + 0.38vw), 1.25rem);
-  --fs-400: clamp(1.05rem, calc(0.91rem + 0.72vw), 1.77rem);
-  --fs-500: clamp(1.26rem, calc(1.01rem + 1.24vw), 2.5rem);
-  --fs-600: clamp(1.51rem, calc(1.11rem + 2.02vw), 3.53rem);
-  --fs-700: clamp(1.81rem, calc(1.18rem + 3.18vw), 5rem);
-  --fs-800: clamp(2.18rem, calc(1.2rem + 4.89vw), 7.07rem);
+  --fs-300: clamp(14.08px, calc(12.8px + 0.38vw), 20px);
+  --fs-400: clamp(16.8px, calc(14.56px + 0.72vw), 28.32px);
+  --fs-500: clamp(20.16px, calc(16.16px + 1.24vw), 40px);
+  --fs-600: clamp(24.16px, calc(17.76px + 2.02vw), 56.48px);
+  --fs-700: clamp(28.96px, calc(18.88px + 3.18vw), 80px);
+  --fs-800: clamp(34.88px, calc(19.2px + 4.89vw), 113.12px);
   --fw-regular: 400;
   --fw-bold: 700;
-  --space-05: 0.5rem;
-  --space-1: 1rem;
-  --space-2: 2rem;
-  --radius: 0.3rem;
+  --space-05: 8px;
+  --space-1: 16px;
+  --space-2: 32px;
+  --radius: 4.8px;
   --transition: all 0.35s ease-out;
 }
 
@@ -38,7 +38,7 @@ Not supports in Firefox and IE */
 /* total width */
 body::-webkit-scrollbar {
   background-color: var(--clr-spaceGray);
-  width: 16px;
+  width: 1rem;
 }
 
 /* background of the scrollbar except button or resizer */
@@ -49,8 +49,8 @@ body::-webkit-scrollbar-track {
 /* scrollbar itself */
 body::-webkit-scrollbar-thumb {
   background-color: var(--clr-cosmicGray);
-  border-radius: 16px;
-  border: 4px solid var(--clr-spaceGray);
+  border-radius: 1rem;
+  border: 0.25rem solid var(--clr-spaceGray);
 }
 
 /* set button(top and bottom of the scrollbar) */
@@ -113,8 +113,8 @@ h6 {
 
 header {
   width: 100vw;
-  height: 7rem;
-  padding-top: 1rem;
+  height: 112px;
+  padding-top: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,12 +135,12 @@ header img {
   width: 100vw;
   height: -moz-fit-content;
   height: fit-content;
-  min-height: 20rem;
+  min-height: 320px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-block: 5rem;
+  padding-block: 80px;
   margin: auto;
 }
 .hero .hero-left {
@@ -160,12 +160,12 @@ header img {
   font-weight: var(--fw-bold);
   color: var(--clr-spaceBlack);
   padding-left: var(--space-1);
-  border-left: 9px solid var(--clr-spaceBlack);
+  border-left: 0.5625rem solid var(--clr-spaceBlack);
 }
 .hero .hero-right img {
-  max-height: 20rem;
+  max-height: 320px;
   width: 100%;
-  filter: drop-shadow(0px 0px 12px var(--clr-cosmicGray));
+  filter: drop-shadow(0rem 0rem 0.75rem var(--clr-cosmicGray));
 }
 
 .characters-container {
@@ -175,6 +175,7 @@ header img {
   align-items: center;
   flex-direction: column;
   margin: auto;
+  gap: var(--space-2);
 }
 
 .characters-title {
@@ -190,9 +191,89 @@ header img {
   font-family: var(--ff-base);
 }
 
-/* Styles to be applied for screens bigger
-than 768px (tablet) */
-@media (width >= 48rem) {
+.character-card {
+  max-width: 300px;
+  align-self: center;
+  padding-bottom: var(--space-1);
+  border-radius: var(--radius);
+  border: 0.0625rem solid var(--clr-cosmicGlass);
+}
+.character-card .character-avatarContainer .character-avatarPic {
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  width: 100%;
+  max-height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.character-card .character-info {
+  padding-inline: var(--space-2);
+}
+.character-card .character-info .character-name {
+  font-size: var(--fs-400);
+  font-family: var(--ff-base);
+  font-weight: var(--fw-bold);
+  margin-bottom: 0;
+}
+.character-card .character-info .character-state {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: -0.5rem;
+  align-items: center;
+  color: var(--clr-darkenOrange);
+}
+.character-card .character-info .character-state .character-stateIndicator {
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: var(--clr-spaceGray);
+  border-radius: 100%;
+  box-shadow: 0px 0px 9px var(--clr-spaceGray);
+}
+.character-card .character-info .character-state .alive {
+  background-color: var(--clr-primaryGreen);
+  box-shadow: 0px 0px 9px var(--clr-primaryGreen);
+}
+.character-card .character-info .character-state .dead {
+  background-color: crimson;
+  box-shadow: 0px 0px 9px crimson;
+}
+.character-card .character-info .character-stateInfo {
+  font-size: var(--fs-300);
+  font-family: var(--ff-base);
+  font-weight: var(--fw-regular);
+}
+.character-card .btnContainer {
+  width: 100%;
+}
+.character-card .btnContainer .character-DetailsBtn {
+  display: inline-block;
+  padding: 0.625rem 1.25rem;
+  background-color: var(--clr-primaryOrange);
+  color: var(--clr-cosmicWhite);
+  border: none;
+  border-radius: var(--radius);
+  font-size: var(--fs-300);
+  font-family: var(--ff-base);
+  font-weight: var(--fw-regular);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.character-card .btnContainer .character-DetailsBtn:hover {
+  scale: 1.05;
+  color: var(--clr-cosmicGray);
+}
+.character-card .btnContainer .character-DetailsBtn:focus {
+  outline: none;
+}
+.character-card .btnContainer .character-DetailsBtn:active {
+  background-color: var(--clr-darkenOrange);
+  scale: 1;
+}
+
+/* For screens bigger than 48rem (tablet) */
+@media (width >= 768px) {
   .hero {
     display: flex;
     justify-content: center;
@@ -201,12 +282,15 @@ than 768px (tablet) */
     gap: 3%;
   }
   .hero-right img {
-    max-height: 30rem !important;
+    max-height: 480px !important;
     width: 30vmax;
   }
   .characters-container {
     flex-direction: row;
     flex-wrap: wrap;
     gap: var(--space-2);
+  }
+  .characters-container .character-card {
+    align-self: stretch;
   }
 }/*# sourceMappingURL=index.css.map */

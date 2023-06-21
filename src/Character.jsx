@@ -2,14 +2,16 @@
 function Character({ image, name, status, species }) {
   return (
     <article className="character-card">
-      <section className="character-avatarContainer">
+      <picture className="character-avatarContainer">
         <img
-          className="character-avatarPic"
+          className="character-avatarPic "
           src={image}
           alt={name + ": rick and morty character"}
+          width="300"
+          height="300"
           loading="lazy"
         />
-      </section>
+      </picture>
       <section className="character-info">
         <h2 className="character-name">{name}</h2>
         <div className="character-state">
@@ -18,12 +20,12 @@ function Character({ image, name, status, species }) {
               status === "Alive" && "alive"
             } ${status === "Dead" && "dead"}`}
           ></div>
-          <h4 className="character-stateInfo">
+          <h3 className="character-stateInfo">
             {status} - {species}
-          </h4>
+          </h3>
         </div>
         <div className="btnContainer">
-          <button className="characterDetailsBtn">Details</button>
+          <button className="character-DetailsBtn">Details</button>
         </div>
       </section>
     </article>

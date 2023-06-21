@@ -5,6 +5,7 @@ function Characters({ data }) {
   return (
     <>
       <h2 className="characters-title">Characters</h2>
+      <input type="text" name="" autoComplete="off" />
       <section className="characters-container">
         {data.map((item) => {
           const { id, image, name, status, species } = item
