@@ -178,12 +178,71 @@ header img {
   gap: var(--space-2);
 }
 
+.characters-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  -webkit-margin-after: var(--space-2);
+          margin-block-end: var(--space-2);
+}
+.characters-form :is(#form-searchBar, #form-searchBtn) {
+  font-size: var(--fs-400);
+  font-family: var(--ff-base);
+  font-weight: var(--fw-regular);
+  padding-block: var(--space-05);
+  padding-inline: var(--space-1);
+}
+.characters-form #form-searchBar {
+  min-width: 15rem;
+  width: 50%;
+  border-radius: var(--radius);
+  outline: none;
+  background-color: var(--clr-cosmicWhite);
+}
+.characters-form #form-searchBar:focus {
+  outline: 0.125rem solid var(--clr-darkenOrange);
+}
+.characters-form #form-searchBar::-moz-selection {
+  background-color: var(--clr-spaceGray);
+  color: var(--clr-darkenOrange);
+}
+.characters-form #form-searchBar::selection {
+  background-color: var(--clr-spaceGray);
+  color: var(--clr-darkenOrange);
+}
+.characters-form #form-searchBtn {
+  height: 100%;
+  background-color: var(--clr-cosmicGray);
+  border-radius: var(--radius);
+  border: none;
+  color: var(--clr-cosmicWhite);
+  transition: var(--transition);
+}
+.characters-form #form-searchBtn:hover {
+  cursor: pointer;
+  background-color: var(--clr-spaceGray);
+  color: var(--clr-spaceBlack);
+}
+.characters-form #form-searchBtn:active {
+  scale: 0.9;
+}
+
 .characters-title {
   font-size: var(--fs-700);
   font-family: var(--ff-base);
   font-weight: var(--fw-bold);
   color: var(--clr-spaceGray);
   text-align: center;
+  margin-bottom: var(--space-2);
+}
+.characters-title::-moz-selection {
+  background-color: var(--clr-spaceBlack);
+  color: var(--clr-primaryGreen);
+}
+.characters-title::selection {
+  background-color: var(--clr-spaceBlack);
+  color: var(--clr-primaryGreen);
 }
 
 .character-card > * {
@@ -256,7 +315,7 @@ header img {
   border-radius: var(--radius);
   font-size: var(--fs-300);
   font-family: var(--ff-base);
-  font-weight: var(--fw-regular);
+  font-weight: var(--fw-bold);
   cursor: pointer;
   transition: var(--transition);
 }

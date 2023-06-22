@@ -182,10 +182,63 @@ header {
   gap: var(--space-2);
 }
 
+.characters-form {
+  @include flexCenter();
+  margin-block-end: var(--space-2);
+
+  :is(#form-searchBar, #form-searchBtn) {
+    @include fontRegular(var(--fs-400));
+    padding-block: var(--space-05);
+    padding-inline: var(--space-1);
+  }
+
+  #form-searchBar {
+    min-width: 15rem;
+    width: 50%;
+    border-radius: var(--radius);
+    outline: none;
+    background-color: var(--clr-cosmicWhite);
+
+    &:focus {
+      outline: 0.125rem solid var(--clr-darkenOrange);
+    }
+
+    &::selection {
+      background-color: var(--clr-spaceGray);
+      color: var(--clr-darkenOrange);
+    }
+  }
+
+  #form-searchBtn {
+    height: 100%;
+    background-color: var(--clr-cosmicGray);
+    border-radius: var(--radius);
+    border: none;
+    color: var(--clr-cosmicWhite);
+    transition: var(--transition);
+
+    &:hover {
+      cursor: pointer;
+      background-color: var(--clr-spaceGray);
+      color: var(--clr-spaceBlack);
+    }
+
+    &:active {
+      scale: 0.9;
+    }
+  }
+}
+
 .characters-title {
   @include fontBold(var(--fs-700));
   color: var(--clr-spaceGray);
   text-align: center;
+  margin-bottom: var(--space-2);
+
+  &::selection {
+    background-color: var(--clr-spaceBlack);
+    color: var(--clr-primaryGreen);
+  }
 }
 
 .character-card > * {
@@ -259,7 +312,7 @@ header {
       color: var(--clr-cosmicWhite);
       border: none;
       border-radius: var(--radius);
-      @include fontRegular(var(--fs-300));
+      @include fontBold(var(--fs-300));
 
       cursor: pointer;
       transition: var(--transition);
