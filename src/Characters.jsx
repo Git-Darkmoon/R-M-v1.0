@@ -5,15 +5,19 @@ import Character from "./Character"
 import { useGlobalContext } from "./Context"
 
 function Characters() {
+  const { data, filterCharacters } = useGlobalContext()
   const [characterName, setCharacterName] = useState("")
 
-  const { data, setData, filterCharacters } = useGlobalContext()
+  const [characters, setCharacters] = useState(data)
 
   const handleSubmit = (e) => {
     e.preventDefault()
     const newItems = filterCharacters(data, characterName)
-    // console.log(newItems)
-    setData(newItems)
+    setCharacters(newItems)
+  }
+
+  const showAllCharacters = () => {
+    setCharacters(data)
   }
 
   return (
@@ -29,12 +33,20 @@ function Characters() {
           onChange={(e) => setCharacterName(e.target.value)}
           required
         />
-        <button id="form-searchBtn">
+        <button type="submit" id="form-searchBtn" className="form-btn">
           <SlMagnifier />
+        </button>
+        <button
+          type="button"
+          id="form-showBtn"
+          className="form-btn"
+          onClick={showAllCharacters}
+        >
+          Show All
         </button>
       </form>
       <section className="characters-container">
-        {data.map((item) => {
+        {characters.map((item) => {
           return <Character key={item.id} {...item} />
         })}
       </section>
