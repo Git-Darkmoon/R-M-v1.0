@@ -186,7 +186,7 @@ header {
   @include flexCenter();
   margin-block-end: var(--space-2);
 
-  :is(#form-searchBar, #form-searchBtn) {
+  :is(#form-searchBar, #form-searchBtn, #form-showBtn) {
     @include fontRegular(var(--fs-400));
     padding-block: var(--space-05);
     padding-inline: var(--space-1);
@@ -209,7 +209,11 @@ header {
     }
   }
 
-  #form-searchBtn {
+  #form-showBtn {
+    margin-left: var(--space-05);
+  }
+
+  .form-btn {
     height: 100%;
     background-color: var(--clr-cosmicGray);
     border-radius: var(--radius);

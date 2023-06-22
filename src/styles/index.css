@@ -186,7 +186,7 @@ header img {
   -webkit-margin-after: var(--space-2);
           margin-block-end: var(--space-2);
 }
-.characters-form :is(#form-searchBar, #form-searchBtn) {
+.characters-form :is(#form-searchBar, #form-searchBtn, #form-showBtn) {
   font-size: var(--fs-400);
   font-family: var(--ff-base);
   font-weight: var(--fw-regular);
@@ -211,7 +211,10 @@ header img {
   background-color: var(--clr-spaceGray);
   color: var(--clr-darkenOrange);
 }
-.characters-form #form-searchBtn {
+.characters-form #form-showBtn {
+  margin-left: var(--space-05);
+}
+.characters-form .form-btn {
   height: 100%;
   background-color: var(--clr-cosmicGray);
   border-radius: var(--radius);
@@ -219,12 +222,12 @@ header img {
   color: var(--clr-cosmicWhite);
   transition: var(--transition);
 }
-.characters-form #form-searchBtn:hover {
+.characters-form .form-btn:hover {
   cursor: pointer;
   background-color: var(--clr-spaceGray);
   color: var(--clr-spaceBlack);
 }
-.characters-form #form-searchBtn:active {
+.characters-form .form-btn:active {
   scale: 0.9;
 }
 
