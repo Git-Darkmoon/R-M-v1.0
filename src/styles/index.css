@@ -16,10 +16,10 @@
   --fs-800: clamp(34.88px, calc(19.2px + 4.89vw), 113.12px);
   --fw-regular: 400;
   --fw-bold: 700;
-  --space-05: 8px;
-  --space-1: 16px;
-  --space-2: 32px;
-  --radius: 4.8px;
+  --space-05: 0.5rem;
+  --space-1: 1rem;
+  --space-2: 2rem;
+  --radius: 0.3rem;
   --transition: all 0.35s ease-out;
 }
 
@@ -113,8 +113,8 @@ h6 {
 
 header {
   width: 100vw;
-  height: 112px;
-  padding-top: 16px;
+  height: 7rem;
+  padding-top: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,12 +135,12 @@ header img {
   width: 100vw;
   height: -moz-fit-content;
   height: fit-content;
-  min-height: 320px;
+  min-height: 20rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-block: 80px;
+  padding-block: 5rem;
   margin: auto;
 }
 .hero .hero-left {

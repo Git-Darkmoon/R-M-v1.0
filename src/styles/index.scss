@@ -22,11 +22,11 @@
   --fw-regular: 400;
   --fw-bold: 700;
 
-  --space-05: 8px;
-  --space-1: 16px;
-  --space-2: 32px;
+  --space-05: 0.5rem;
+  --space-1: 1rem;
+  --space-2: 2rem;
 
-  --radius: 4.8px;
+  --radius: 0.3rem;
 
   --transition: all 0.35s ease-out;
 }
@@ -120,8 +120,8 @@ img {
 
 header {
   width: 100vw;
-  height: 112px;
-  padding-top: 16px;
+  height: 7rem;
+  padding-top: 1rem;
 
   @include flexCenter();
 
@@ -142,11 +142,11 @@ header {
   width: 100vw;
   // height: calc(100vh - 112px);
   height: fit-content;
-  min-height: 320px;
+  min-height: 20rem;
   // max-height: 480px;
   @include flexCenter(column);
 
-  padding-block: 80px;
+  padding-block: 5rem;
   margin: auto;
 
   .hero-left {
