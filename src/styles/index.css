@@ -144,6 +144,7 @@ header img {
   margin: auto;
 }
 .hero .hero-left {
+  max-width: 98ch;
   text-wrap: balance;
   padding-left: var(--space-1);
 }
@@ -332,6 +333,44 @@ header img {
 .character-card .btnContainer .character-DetailsBtn:active {
   background-color: var(--clr-darkenOrange);
   scale: 1;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 5rem;
+  padding-block: 5rem;
+}
+.footer .footer-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 5rem;
+  gap: var(--space-2);
+}
+.footer .footer-social li {
+  list-style: none;
+}
+.footer .footer-social .footer-social__links {
+  font-size: var(--fs-400);
+  font-family: var(--ff-base);
+  font-weight: var(--fw-bold);
+  color: var(--clr-spaceGray);
+  transition: color 0.3s ease;
+}
+.footer .footer-social .footer-social__links:hover {
+  color: var(--clr-primaryOrange);
+}
+.footer .footer-copyright {
+  font-size: var(--fs-300);
+  font-family: var(--ff-base);
+  font-weight: var(--fw-regular);
+  color: var(--clr-spaceGray);
 }
 
 /* For screens bigger than 48rem (tablet) */
