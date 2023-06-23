@@ -7,11 +7,7 @@ function Hero() {
         <h2 className="hero-title">Rick & Morty API</h2>
         <h3 className="hero-body">
           Find your favorites rick and morty characters. Each time you
-          visit/refresh the page you will find different{" "}
-          <abbr title="The filters will be applied for the actual characters">
-            characters
-          </abbr>
-          .
+          visit/refresh the page you will find different characters.
         </h3>
       </div>
       <div className="hero-right">
