@@ -1,4 +1,5 @@
 import { BsLinkedin, BsGithub } from "react-icons/bs"
+import { AiFillFileMarkdown } from "react-icons/ai"
 
 function Footer() {
   const actualYear = new Date().getFullYear()
@@ -23,6 +24,14 @@ function Footer() {
             href="https://github.com/Git-Darkmoon"
           >
             <BsGithub />
+          </a>
+        </li>
+        <li>
+          <a
+            className="footer-social__links"
+            href="https://github.com/Git-Darkmoon"
+          >
+            <AiFillFileMarkdown />
           </a>
         </li>
       </ul>
