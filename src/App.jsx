@@ -3,11 +3,14 @@ import Characters from "./Characters"
 import Hero from "./Hero"
 import Nav from "./Nav"
 import { useGlobalContext } from "./Context"
+import Footer from "./Footer"
 
 function App() {
-  const API_URL = "https://rickandmortyapi.com/api/character"
+  const randomPage = Math.round(Math.random() * 42)
 
-  const { data, fetchData } = useGlobalContext()
+  const API_URL = `https://rickandmortyapi.com/api/character?page=${randomPage}`
+
+  const { fetchData } = useGlobalContext()
 
   useEffect(() => {
     fetchData(API_URL)
@@ -20,7 +23,8 @@ function App() {
         <Nav />
         <Hero />
       </section>
-      <Characters data={data} />
+      <Characters />
+      <Footer />
     </>
   )
 }
