@@ -5,6 +5,9 @@ const AppContext = createContext()
 // eslint-disable-next-line react/prop-types
 export function AppProvider({ children }) {
   const [data, setData] = useState([])
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  // Function used in App.jsx
 
   const fetchData = async (URL) => {
     try {
@@ -17,14 +20,37 @@ export function AppProvider({ children }) {
     }
   }
 
+  // Function used in Characters.jsx
+
   function filterCharacters(dataArray, cName) {
     return dataArray.filter((item) =>
       item?.name?.toLowerCase().includes(cName?.toLowerCase().trim())
     )
   }
 
+  // Functions used in ModalDetails.jsx and Character.jsx
+
+  function openModal() {
+    setIsModalOpen(true)
+  }
+  function closeModal() {
+    setIsModalOpen(false)
+  }
+
   return (
-    <AppContext.Provider value={{ data, setData, fetchData, filterCharacters }}>
+    <AppContext.Provider
+      // Properties passed as global values.
+
+      value={{
+        data,
+        setData,
+        fetchData,
+        filterCharacters,
+        isModalOpen,
+        openModal,
+        closeModal,
+      }}
+    >
       {children}
     </AppContext.Provider>
   )

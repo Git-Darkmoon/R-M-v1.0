@@ -1,8 +1,12 @@
+/* eslint-disable no-extra-semi */
 /* eslint-disable react/prop-types */
-import { useState } from "react"
+import { createContext, useState } from "react"
 import { SlMagnifier } from "react-icons/sl"
 import Character from "./Character"
 import { useGlobalContext } from "./Context"
+
+// Create a new context
+export const ItemContext = createContext()
 
 function Characters() {
   const { data, filterCharacters } = useGlobalContext()
@@ -47,7 +51,9 @@ function Characters() {
       </form>
       <section className="characters-container">
         {characters.map((item) => {
-          return <Character key={item.id} {...item} />
+          ;<ItemContext.Provider value={item.id} {...item}>
+            <Character />
+          </ItemContext.Provider>
         })}
       </section>
     </>

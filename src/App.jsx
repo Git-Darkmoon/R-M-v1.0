@@ -4,6 +4,7 @@ import Hero from "./Hero"
 import Nav from "./Nav"
 import { useGlobalContext } from "./Context"
 import Footer from "./Footer"
+import ModalDetails from "./ModalDetails"
 
 function App() {
   const randomPage = Math.round(Math.random() * 42)
@@ -24,6 +25,8 @@ function App() {
         <Hero />
       </section>
       <Characters />
+      <ModalDetails />
+
       <Footer />
     </>
   )
