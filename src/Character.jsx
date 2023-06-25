@@ -2,9 +2,10 @@ import { useGlobalContext } from "./Context"
 
 /* eslint-disable react/prop-types */
 function Character(characterDetails) {
-  const { image, name, status, species, gender, origin, location } =
-    characterDetails
+  const { image, name, status, species } = characterDetails
 
+  // Destructuring variables coming from globalContext.
+  // selectedCharacter is used in ModalDetails.jsx
   const { openModal, setSelectedCharacter } = useGlobalContext()
 
   return (
@@ -32,6 +33,10 @@ function Character(characterDetails) {
           </h3>
         </div>
         <div className="btnContainer">
+          {/* The setSelectedCharacter function updates the 
+          state with the selected character details,
+          while the openModal function triggers the
+           display of the modal component. */}
           <button
             className="character-DetailsBtn"
             onClick={() => {

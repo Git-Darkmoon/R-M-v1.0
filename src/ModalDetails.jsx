@@ -7,8 +7,6 @@ function ModalDetails() {
   const { image, name, status, species, gender, origin, location } =
     selectedCharacter
 
-  console.log(selectedCharacter)
-
   return (
     <div className={`modal-overlay ${isModalOpen && "show-modal"}`}>
       <article className="modal-container">
