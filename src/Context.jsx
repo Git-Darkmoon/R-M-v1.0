@@ -7,6 +7,8 @@ export function AppProvider({ children }) {
   const [data, setData] = useState([])
   const [isModalOpen, setIsModalOpen] = useState(false)
 
+  const [selectedCharacter, setSelectedCharacter] = useState({})
+
   // Function used in App.jsx
 
   const fetchData = async (URL) => {
@@ -49,6 +51,8 @@ export function AppProvider({ children }) {
         isModalOpen,
         openModal,
         closeModal,
+        selectedCharacter,
+        setSelectedCharacter,
       }}
     >
       {children}

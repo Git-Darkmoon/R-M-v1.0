@@ -26,7 +26,6 @@ function App() {
       </section>
       <Characters />
       <ModalDetails />
-
       <Footer />
     </>
   )

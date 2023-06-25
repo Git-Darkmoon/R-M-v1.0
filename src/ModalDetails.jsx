@@ -2,17 +2,12 @@
 import { useGlobalContext } from "./Context"
 import { FaTimes } from "react-icons/fa"
 
-function ModalDetails(characterDetails) {
-  const { isModalOpen, closeModal } = useGlobalContext()
-  const {
-    image,
-    name = "pepe",
-    status = "pepe",
-    species = "pepe",
-    gender = "pepe",
-    origin = "pepe",
-    location = "pepe",
-  } = characterDetails
+function ModalDetails() {
+  const { selectedCharacter, isModalOpen, closeModal } = useGlobalContext()
+  const { image, name, status, species, gender, origin, location } =
+    selectedCharacter
+
+  console.log(selectedCharacter)
 
   return (
     <div className={`modal-overlay ${isModalOpen && "show-modal"}`}>
@@ -24,8 +19,8 @@ function ModalDetails(characterDetails) {
           <span>Status:</span> {status} <br />
           <span>Species:</span> {species} <br />
           <span>Gender:</span> {gender} <br />
-          <span>Origin:</span> {origin.name} <br />
-          <span>Location:</span> {location.name} <br />
+          <span>Origin:</span> {origin?.name} <br />
+          <span>Location:</span> {location?.name} <br />
         </p>
         <button className="close-modal-btn" onClick={closeModal}>
           <FaTimes />
