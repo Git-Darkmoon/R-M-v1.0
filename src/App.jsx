@@ -1,10 +1,10 @@
 import { useEffect } from "react"
-import Characters from "./Characters"
-import Hero from "./Hero"
-import Nav from "./Nav"
-import { useGlobalContext } from "./Context"
-import Footer from "./Footer"
-import ModalDetails from "./ModalDetails"
+import { useGlobalContext } from "./Components/Context"
+import Nav from "./Components/Nav"
+import Hero from "./Components/Hero"
+import Characters from "./Components/Characters"
+import ModalDetails from "./Components/ModalDetails"
+import Footer from "./Components/Footer"
 
 function App() {
   const randomPage = Math.round(Math.random() * 42)

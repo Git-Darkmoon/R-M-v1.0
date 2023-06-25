@@ -1,4 +1,4 @@
-import illustration from "./assets/portalPic.webp"
+import illustration from "../assets/portalPic.webp"
 
 function Hero() {
   return (
